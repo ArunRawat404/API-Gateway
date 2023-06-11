@@ -11,7 +11,7 @@ function checkPassword(plainPassword, encryptedPassword) {
     }
 }
 
-async function createToken(input) {
+function createToken(input) {
     try {
         return jwt.sign(input, ServerConfig.JWT_SECRET, { expiresIn: ServerConfig.JWT_EXPIRY });
     } catch (error) {
@@ -19,7 +19,16 @@ async function createToken(input) {
     }
 }
 
+function verifyToken(token) {
+    try {
+        return jwt.verify(token, ServerConfig.JWT_SECRET);
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports = {
     checkPassword,
-    createToken
+    createToken,
+    verifyToken
 }

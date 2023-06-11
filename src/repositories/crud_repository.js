@@ -23,7 +23,6 @@ class CrudRepository {
             }
         });
         // We will throw an error if we are unable to find a response
-        console.log(response);
         if (!response) {
             throw new AppError("Not able to find the resource", StatusCodes.NOT_FOUND);
         }
