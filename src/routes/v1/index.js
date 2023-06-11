@@ -8,7 +8,10 @@ const router = express.Router();
 // /api/v1/info
 router.get("/info", InfoController.info);
 
-// /api/v1/signup
-router.use("/signup", userRoutes);
+// /api/v1/user
+router.use("/user", userRoutes);
+
+// /api/v1/user
+router.use("/user", userRoutes);
 
 module.exports = router;
